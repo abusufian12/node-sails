@@ -1,4 +1,4 @@
-# sails-project-2
+# sails-project
 
 a [Sails v1](https://sailsjs.com) application
 
