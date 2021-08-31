@@ -1,0 +1,43 @@
+<div id="post-create" v-cloak>
+
+  <div class="container">
+    <br>
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>Add New Post</h2>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-primary" href="/posts"> Back</a>
+        </div>
+    </div>
+   <br>
+   <br>
+    <form action="/posts/store" method="POST">
+      <input type="hidden" name="_csrf" value="<%- _csrf %>" />
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+              <strong>emailAddress:</strong>
+              <input type="text" name="emailAddress" value="abusufian12@gmail.com" class="form-control" placeholder="Enter emailAddress">
+          </div>
+        </div>  
+        <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="form-group">
+                  <strong>Title:</strong>
+                  <input type="text" name="postTitle" class="form-control" placeholder="Enter Title">
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Description:</strong>
+                <textarea class="form-control" style="height:150px" name="postDescription" placeholder="Enter Description"></textarea>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+      </div>
+    </form>
+  </div>  
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

@@ -1,0 +1,44 @@
+<div id="post-index" v-cloak>
+
+  <div class="container" style="margin-top: 5rem;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>Post List</h2>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="/posts/create"> Create New Post</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+      <tr>
+          <th>Id</th>
+          <th>Email</th>
+          <th>Title</th>
+          <th>Details</th>
+          <th width="280px">Action</th>
+      </tr>
+      <% allPosts.forEach(function(post){ %>
+      <tr>
+          <td><%= post.id %></td>
+          <td><%= post.emailAddress %></td>
+          <td><%= post.postTitle %></td>
+          <td><%= post.postDescription %></td>
+          
+          <td>
+            <a class="btn btn-info" href="/posts/view/<%= post.id %>">Show</a>    
+            <a class="btn btn-primary" href="/posts/edit/<%= post.id %>">Edit</a>
+            <form class="d-inline" action="/posts/delete" method="post">
+              <input type="hidden" name="id" value="<%= post.id %>">
+              <input type="hidden" name="_csrf" value="<%- _csrf %>" />
+              <input type="submit" name="delete" value="delete" class="btn btn-danger">
+            </form>  
+          </td>
+      </tr>
+      <% }) %>
+    </table> 
+
+  </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
